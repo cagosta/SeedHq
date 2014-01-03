@@ -1,0 +1,25 @@
+{
+    "name": {
+        "raw": "SeedHq",
+        "camel": "SeedHq",
+        "snake": "seed_hq",
+        "slug": "seedhq"
+    },
+    "github": {
+        "user": "cagosta",
+        "path": "cagosta/SeedHq"
+    },
+    "livereloadPort": 35729,
+    "author": {
+        "name": "Cyril Agosta",
+        "email": "cyril.agosta.dev@gmail.com"
+    },
+    "deploy": {
+        "host": "mangrove.dk",
+        "dir": "/var/www/mangrove.dk/SeedHq",
+        "user": "cyril"
+    },
+    "cachedDeps": false,
+    "moduleName": "SeedHq",
+    "isFrontEndApp": true
+}
