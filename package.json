@@ -1,58 +1,60 @@
 {
-    "name": "seedhq",
-    "version": "0.0.4",
-    "private": false,
-    "keywords": [],
-    "contributors": [ "Cyril Agosta <cyril.agosta.dev@gmail.com>" ],
-    "description": "Elegant customizable inheritance, attributes and events in JavaScript.",
-    "devDependencies": {
-    },
-    "dependencies": {
-        "requirejs": "~2.1.9",
-        "grunt": "~0.4.x",
-        "bower": "~1.x",
-        "grunt-contrib-connect": "~0.2.0",
-        "grunt-contrib-watch": "~0.4.3",
-        "grunt-bower-requirejs": "0.8.0",
-        "grunt-open": "~0.2.0",
-        "matchdep": "~0.1.2",
-        "connect-livereload": "~0.1.3",
-        "grunt-exec": "~0.4.2",
-        "grunt-release": "~0.6.0",
-        "mime": "~1.2.11",
-        "rimraf": "~2.2.5",
-        "grunt-contrib-requirejs": "~0.4.1",
-        "grunt-text-replace": "~0.3.10",
-        "grunt-contrib-copy": "~0.4.1",
-        "grunt-contrib-stylus": "~0.11.0",
-        "grunt-jsdoc": "~0.4.2",
-        "ink-docstrap": "~0.2.0-0",
-        "grunt-bump": "0.0.13",
-        "mocha": "~1.16.2"
-    },
-    "homepage": "https://github.com/cagosta/SeedHq",
-    "bugs": "https://github.com/cagosta/SeedHq/issues",
-    "author": {
-        "name": "Cyril Agosta",
-        "email": "cyril.agosta.dev@gmail.com",
-        "url": "https://github.com/cagosta/SeedHq"
-    },
-    "main": "app/main.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/.git"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "link": "http://opensource.org/licenses/MIT"
-        }
-    ],
-    "scripts": {
-        "postinstall": "grunt postinstall",
-        "test": "grunt test"
-    },
-    "engines": {
-        "node": ">=0.8.0"
+  "name": "seedhq",
+  "version": "0.0.4",
+  "private": false,
+  "keywords": [],
+  "contributors": [
+    "Cyril Agosta <cyril.agosta.dev@gmail.com>"
+  ],
+  "description": "Elegant customizable inheritance, attributes and events in JavaScript.",
+  "devDependencies": {},
+  "dependencies": {
+    "requirejs": "~2.1.9",
+    "grunt": "~0.4.x",
+    "bower": "~1.x",
+    "grunt-contrib-connect": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-bower-requirejs": "0.8.0",
+    "grunt-open": "~0.2.0",
+    "matchdep": "~0.1.2",
+    "connect-livereload": "~0.1.3",
+    "grunt-exec": "~0.4.2",
+    "grunt-release": "~0.6.0",
+    "mime": "~1.2.11",
+    "rimraf": "~2.2.5",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-text-replace": "~0.3.10",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-stylus": "~0.11.0",
+    "grunt-jsdoc": "~0.4.2",
+    "ink-docstrap": "~0.2.0-0",
+    "grunt-bump": "0.0.13",
+    "mocha": "~1.16.2",
+    "grunt-cli": "~0.1.11"
+  },
+  "homepage": "https://github.com/cagosta/SeedHq",
+  "bugs": "https://github.com/cagosta/SeedHq/issues",
+  "author": {
+    "name": "Cyril Agosta",
+    "email": "cyril.agosta.dev@gmail.com",
+    "url": "https://github.com/cagosta/SeedHq"
+  },
+  "main": "app/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "link": "http://opensource.org/licenses/MIT"
     }
+  ],
+  "scripts": {
+    "postinstall": "grunt postinstall",
+    "test": "grunt test"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
 }
