@@ -62,7 +62,7 @@ module.exports = function( grunt ) {
 
     grunt.config.set( 'exec.headless_test', {
 
-        command: './node_modules/.bin/mocha-phantomjs --path .bin/phantomjs test/index.html'
+        command: './node_modules/.bin/mocha-phantomjs --path ./node_modules/.bin/phantomjs test/index.html'
 
     } )
 
