@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
         })
     } )
 
-    grunt.registerTask( 'postinstall', 'Install mocha && mocha phantomjs globally with npm -g', [
+    grunt.registerTask( 'postinstall', 'Bower install and inject R.js config in main files.', [
         'bower_install',
         'inject_rjsconfig'
     ] )
