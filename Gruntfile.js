@@ -28,7 +28,9 @@ GruntInitializer.prototype = {
     },
 
     loadGruntDependencies: function() {
-        require( 'matchdep' ).filter( 'grunt-*' ).forEach( this.grunt.loadNpmTasks )
+
+        require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( this.grunt.loadNpmTasks )
+
     },
 
     initializeGrunt: function() {
