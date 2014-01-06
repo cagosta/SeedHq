@@ -9,6 +9,31 @@
         "user": "cagosta",
         "path": "cagosta/SeedHq"
     },
+    "test": {
+        "saucelabs": {
+            "browsers": {
+                "default": [
+                    {
+                        "browserName": "opera"
+                    }
+                ],
+                "ies": [
+                    {
+                        "browserName": "internet explorer",
+                        "platform": "VISTA",
+                        "version": "9"
+                    }, {
+                        "browserName": "internet explorer",
+                        "platform": "XP",
+                        "version": "8"
+                    }
+                ]
+            }
+        }
+    },
+    "server": {
+        "port": 5000
+    },
     "livereloadPort": 35729,
     "author": {
         "name": "Cyril Agosta",

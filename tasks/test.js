@@ -1,9 +1,68 @@
+var SauceRunner = function( o ) {
+
+    this.grunt = o.grunt
+    this.task = o.task
+    this.taskArg = o.taskArg ||  'default'
+
+
+
+    this.browsers = this.grunt.config.get( 'config.test.saucelabs.browsers.' + this.taskArg )
+
+    this.grunt.log.write( 'Running ' + this.taskArg + ' saucelabs tests on :' + JSON.stringify( this.browsers ) + ' ...' )
+
+    this.grunt.config.set( 'saucelabs-mocha', { // see https://github.com/axemclion/grunt-saucelabs
+        all: {
+            options: {
+                username: '<%= config.credentials.saucelabs.username %>', // if not provided it'll default to ENV SAUCE_USERNAME (if applicable)
+                key: '<%= config.credentials.saucelabs.key %>', // if not provided it'll default to ENV SAUCE_ACCESS_KEY (if applicable)
+                urls: [ 'http://localhost:<%= config.server.port %>/test/' ],
+                concurrency: 2,
+                // concurrency: 'Number of concurrent browsers to test against. Will default to the number of overall browsers specified. Check your plan (free: 2, OSS: 3) and make sure you have got sufficient Sauce Labs concurrency.',
+                // tunneled: 'true (default) / false; false if you choose to skip creating a Sauce connect tunnel.',
+                // tunnelTimeout: 'A numeric value indicating the time to wait before closing all tunnels',
+                // testTimeout: 'Milliseconds to wait before timeout for qunit test per page',
+                // testInterval: 'Milliseconds between retries to check if the tests are completed',
+                // testReadyTimeout: 'Milliseconds to wait until the test-page is ready to be read',
+                // detailedError: 'false (default) / true; if true log detailed test results when a test error occurs',
+                detailedError: true,
+                testname: '<%= config.name.raw %>#<%= config.version %>',
+                // tags: [ 'Array of tags' ],
+                browsers: this.browsers,
+                onTestComplete: function() {
+                    // Called after a qunit unit is done, per page, per browser
+                    // Return true or false, passes or fails the test
+                    // Returning undefined does not alter the test result
+
+                    // For async return, call
+                    // var done = this.async();
+                    // done( true or false changes the test result, undefined does not alter the result);
+                }
+            }
+        }
+    } )
+
+    this.grunt.task.run( [ 'server:test', 'saucelabs-mocha' ] )
+
+}
+
+
+
 module.exports = function( grunt ) {
 
 
+    grunt.registerTask( 'test:sauce', function( taskArg ) {
+
+        new SauceRunner( {
+            grunt: grunt,
+            task: this,
+            taskArg: taskArg
+        } )
+
+    } )
+
     grunt.config.set( 'exec.headless_test', {
 
-        command: 'mocha-phantomjs test/index.html'
+        command: './node_modules/.bin/mocha-phantomjs --path .bin/phantomjs test/index.html'
 
     } )
 

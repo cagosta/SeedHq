@@ -4,11 +4,11 @@ module.exports = function( grunt ) {
     grunt.config.set( 'open', {
 
         server_index: {
-            path: 'http://localhost:<%= connect.options.port %>'
+            path: 'http://localhost:<%= config.server.port %>'
         },
 
         test_page: {
-            path: 'http://localhost:<%= connect.options.port %>/test'
+            path: 'http://localhost:<%= config.server.port %>/test'
         },
 
         host: {

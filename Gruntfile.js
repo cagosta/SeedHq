@@ -4,7 +4,7 @@
 var GruntInitializer = function( o ) {
     this.grunt = o.grunt
     this.initiliazeConfig()
-    this.initializeGrunt( )
+    this.initializeGrunt()
     this.loadGruntDependencies()
     this.loadTasks()
 }
@@ -14,10 +14,16 @@ GruntInitializer.prototype = {
     initiliazeConfig: function() {
         this.moduleConfig = this.grunt.file.readJSON( './config.json' )
         this.packageConfig = this.grunt.file.readJSON( './package.json' )
+        try {
+            this.credentialsConfig = this.grunt.file.readJSON( './.credentials.json' )
+        } catch ( e ) {
+            this.credentialsConfig = this.credentialsConfig ||  {}
+        }
         this.config = this.moduleConfig
+        this.config.credentials = this.credentialsConfig
         for ( var i in this.packageConfig ) // extend module config with package.json
             if ( this.packageConfig.hasOwnProperty( i ) )
-                if ( !this.config[ i ])
+                if ( !this.config[ i ] )
                     this.config[ i ] = this.packageConfig[ i ]
     },
 

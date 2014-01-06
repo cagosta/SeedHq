@@ -4,6 +4,7 @@ if ( typeof window === 'undefined' )
     global.requirejs = require( 'requirejs' )
 
 
+
 requirejs.config( {
     baseUrl: function(){ return ( typeof define === 'undefined') ? __dirname + '/../app': '../app'}(),
     shim: {
@@ -39,5 +40,6 @@ requirejs.config( {
 requirejs( [ 'test/TestRunner' ], function( TestRunner ) {
 
     new TestRunner()
+    
 
 } )
