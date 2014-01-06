@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
 
     grunt.config.set( 'replace.version', {
         overwrite: true,
-        src: [ 'README.md', 'app/SeedHq.js' ],
+        src: [ 'README.md', 'app/<%= config.name.raw %>.js' ],
         // overwrite matched source files
         replacements: [
             {

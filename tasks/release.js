@@ -9,11 +9,11 @@ var Releaser = function( o ) {
 
 
     this.grunt.config.set( 'bump.options', {
-        files: [ 'package.json', 'bower.json', 'app/SeedHq.js' ],
+        files: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js' ],
         updateConfigs: [ 'config' ],
         commit: true,
         commitMessage: 'Releasing v%VERSION%',
-        commitFiles: [ 'package.json', 'bower.json', 'app/SeedHq.js', 'dist' ], // '-a' for all files
+        commitFiles: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js', 'dist' ], // '-a' for all files
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
