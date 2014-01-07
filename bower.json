@@ -2,7 +2,8 @@
     "name": "SeedHq",
     "version": "0.0.10",
     "main": [
-        "app"
+        "app",
+        "app/Seed.js"
     ],
     "licenses": [
         {
