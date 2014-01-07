@@ -30,18 +30,91 @@
             "browsers": {
                 "default": [
                     {
-                        "browserName": "opera"
+                        "browserName": "firefox",
+                        "version": "26"
+                    },
+                    {
+                        "browserName": "firefox",
+                        "version": "20"
+                    },
+                    {
+                        "browserName": "chrome",
+                        "version": "28"
+                    },
+                    {
+                        "browserName": "chrome",
+                        "version": "31"
+                    },
+                    {
+                        "browserName": "safari",
+                        "version": "5",
+                        "platform": "OS X 10.6"
+                    },
+                    {
+                        "browserName": "safari",
+                        "version": "6",
+                        "platform": "OS X 10.8"
+                    },
+                    {
+                        "browserName": "safari",
+                        "version": "7",
+                        "platform": "OS X 10.9"
+                    },
+                    {
+                        "browserName": "opera",
+                        "version": "11"
+                    },
+                    {
+                        "browserName": "opera",
+                        "version": "12"
+                    },
+                    {
+                        "browserName": "internet explorer",
+                        "version": "9"
+                    },
+                    {
+                        "browserName": "internet explorer",
+                        "version": "10"
+                    },
+                    {
+                        "browserName": "internet explorer",
+                        "platform": "Windows 8.1",
+                        "version": "11"
+                    },
+                    {
+                        "browserName": "iphone",
+                        "version": "4"
+                    },
+                    {
+                        "browserName": "iphone",
+                        "version": "5"
+                    },
+                    {
+                        "browserName": "iphone",
+                        "version": "6"
+                    },
+                    {
+                        "browserName": "iphone",
+                        "version": "7"
+                    },
+                    {
+                        "browserName": "android",
+                        "version": "4.0",
+                        "platform": "Linux"
                     }
                 ],
                 "ies": [
                     {
                         "browserName": "internet explorer",
-                        "platform": "VISTA",
-                        "version": "9"
-                    }, {
+                        "version": "7"
+                    },
+                    {
                         "browserName": "internet explorer",
-                        "platform": "XP",
                         "version": "8"
+                    },
+                    {
+                        "browserName": "internet explorer",
+                        "version": "9"
                     }
                 ]
             }

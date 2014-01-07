@@ -7,6 +7,7 @@ var Builder = function( o ) {
     this.setCopyGruntConfig()
     this.setCopyToLatestGruntConfig()
     // this.setReplaceVersionGruntConfig()
+    this.setGruntReplaceBuildPath()
     this.run()
 
 }
@@ -22,8 +23,35 @@ Builder.prototype = {
         this.separator = '-'
         this.latest = 'latest'
         this.min = 'min'
+        this.amd = 'amd'
         this.standalone = 'standalone'
         this.fileType = '.js'
+
+    },
+
+    setGruntReplaceBuildPath: function() { // take app/index.html and inject mocha in it
+
+        this.grunt.config.set( 'replace.build_path', {
+            src: [ 'dist/build/index.html' ],
+            dest: 'test/index_build.html',
+            replacements: [
+                { // add mocha stylesheet and div
+                    from: /<\/head>[^<]+<body>/gi,
+                    to: [ '<link rel="stylesheet" href="assets/mocha.css" />',
+                            '</head>',
+                            '<body>',
+                            '<div id="mocha"></div>'
+                        ].join( '\n' )
+                },
+                { // change data_main and add 
+                    from: '<script data-main="main.js" src="bower_components/requirejs/require.js"></script>',
+                    to: [ 
+                        '<script data-main="test_main.js" src="../app/bower_components/requirejs/require.js"></script>',
+                        '<script src="../dist/build/main.js"></script>'
+                    ].join( '\n' )
+                }
+            ]
+        } )
 
     },
 
@@ -50,7 +78,7 @@ Builder.prototype = {
                     dest: 'dist/build/index.html'
                 },
                 {
-                    src: this.getStandalonePath(),
+                    src: this.getBuildPath( this.getAmdMinFilename() ),
                     dest: 'dist/build/main.js'
                 }
             ]
@@ -68,6 +96,10 @@ Builder.prototype = {
                 {
                     src: this.getStandaloneMinPath(),
                     dest: this.getBuildPath( this.getStandaloneLatestMinFilename() )
+                },
+                {
+                    src: this.getBuildPath( this.getAmdMinFilename() ),
+                    dest: this.getBuildPath( this.getLatestAmdMinFilename() )
                 }
             ]
         } )
@@ -83,6 +115,14 @@ Builder.prototype = {
 
     getStandaloneLatestFilename: function() {
         return [  this.moduleName, this.latest, this.standalone ].join( this.separator ) + this.fileType
+    },
+
+    getAmdMinFilename: function() {
+        return [ this.moduleName, this.version, this.amd, this.min ].join( this.separator ) + this.fileType
+    },
+
+    getLatestAmdMinFilename: function() {
+        return [  this.moduleName, this.latest, this.amd, this.min ].join( this.separator ) + this.fileType
     },
 
     getStandaloneLatestMinFilename: function() {
@@ -117,6 +157,7 @@ Builder.prototype = {
             standalone: { // see https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
                 options: {
+                    optimizeAllPluginResources: true,
                     mainConfigFile: this.mainConfigFile,
                     optimize: 'none',
                     wrap: true,
@@ -127,16 +168,27 @@ Builder.prototype = {
 
             },
 
+
+            amdMin: {
+
+                options: {
+                    optimizeAllPluginResources: true,
+                    mainConfigFile: this.mainConfigFile,
+                    optimize: 'uglify2',
+                    out: this.getBuildPath( this.getAmdMinFilename() ),
+                    name: this.name
+                }
+            },
+
             standaloneMin: {
 
                 options: {
+                    optimizeAllPluginResources: true,
                     mainConfigFile: this.mainConfigFile,
                     optimize: 'uglify2',
-                    wrap: true,
                     out: this.getStandaloneMinPath(),
                     name: this.name,
                     include: [ 'bower_components/almond/almond' ]
-
                 }
             }
 
@@ -149,9 +201,11 @@ Builder.prototype = {
         this.grunt.task.run( [
             'requirejs:standalone',
             'requirejs:standaloneMin',
+            'requirejs:amdMin',
             'make_stylesheets',
             'copy:build',
             'copy:build_to_latest',
+            'replace:build_path',
             'exec:compress_build'
         ] )
 
