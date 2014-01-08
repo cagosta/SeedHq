@@ -8,7 +8,7 @@
 define( [
   './Eventable',
   './helpers' // remove me 
-], function( Eventable ) {
+], function( Eventable, helpers ) {
 
     /**
      * @class Seed
