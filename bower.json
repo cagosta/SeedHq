@@ -1,8 +1,8 @@
 {
-    "name": "SeedHq",
-    "version": "0.0.12",
+    "name": "Seed",
+    "version": "0.0.13",
     "main": [
-        "app/Seed.js"
+        "app"
     ],
     "licenses": [
         {
