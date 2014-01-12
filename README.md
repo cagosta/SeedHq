@@ -103,6 +103,9 @@ Seed.js is a package of 4 little Tools :
 
 
 
+## Demo ##
+See [cagosta.github.io/Seed](http://cagosta.github.io/Seed) 
+
 ## Install ##
 
 SeedHq is coded as [AMD module](http://requirejs.org/docs/whyamd.html) but can be installed with npm, bower or old-fashioned src=".min.js".
