@@ -88,7 +88,7 @@ define(function(  ) {
                 if ( this.is( 'PlainObject', structure[ key ] )) // if value is a plain objet, reccursive check
                     return this.isStructure( structure[ key ], obj[ key ])
                 if ( ! this.is( type, obj[ key ] ) )
-                    error = 'TypeChecker: Key ' + key + ' is not in ' + object 
+                    error = 'TypeChecker: Key ' + key + ' is not in ' + obj
 
             }
             if ( error ){
