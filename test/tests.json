@@ -1,11 +1,16 @@
 [
 	"Seed/Eventable",
-	"Seed/Seed",
-	"Seed/Extendable",
 	"Seed/SeedHq",
+	"Seed/Extendable",
+	"Seed/Seed",
 	"Seed/helpers",
 	"Seed/plugins/AbstractExtendHook",
 	"Seed/plugins/AbstractSeedPlugin",
+	"Seed/plugins/defaultPlugins",
+	"Seed/plugins/accessorsSeedPlugin/AccessorsExtendHook",
+	"Seed/plugins/accessorsSeedPlugin/accessorsSeedPlugin",
+	"Seed/plugins/plusMinusSeedPlugin/PlusMinusExtendHook",
+	"Seed/plugins/plusMinusSeedPlugin/plusMinusSeedPlugin",
 	"Seed/plugins/typeSeedPlugin/TypeExtendHook",
 	"Seed/plugins/typeSeedPlugin/TypeSeedPlugin",
 	"Seed/plugins/typeSeedPlugin/typeSeedPlugin"

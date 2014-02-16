@@ -1,7 +1,7 @@
 var TestFileMaker = function( o ) {
 
 
-    this.force = true
+    this.force = false
 
 
     this.grunt = o.grunt

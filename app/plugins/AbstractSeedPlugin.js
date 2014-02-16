@@ -14,7 +14,7 @@ define( [
 
         constructor: function() {
 
-            this.ExtendHook = AbstractExtendHook
+            this.ExtendHook = this.ExtendHook || AbstractExtendHook
 
         },
 
@@ -32,8 +32,9 @@ define( [
 
         buildExtendHook: function( o ) {
 
-            var ExtendHook = this.ExtendHook
             o.pluginId = this.id
+
+            var ExtendHook = this.ExtendHook
 
             new ExtendHook( o )
 

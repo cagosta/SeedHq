@@ -6,7 +6,6 @@ define( [
 
     var basicInheritenceTests = function( Extendable ) {
 
-
         describe( 'Extendable basic inheritence', function() {
 
             it( 'should work', function() {
@@ -113,7 +112,7 @@ define( [
 
     }
 
-    describe( 'Seed', function() {
+    describe( 'Extendable', function() {
 
         describe( ' before extension', function() {
 
@@ -292,5 +291,7 @@ define( [
         } )
 
     } )
+
+    return basicInheritenceTests
 
 } )

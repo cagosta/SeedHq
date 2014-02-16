@@ -71,7 +71,7 @@ define( [ '../helpers' ], function( _ ) {
 
             // var resObj =  {},
             var resObj = oldObj,
-                nullFn = function( ) {};
+                nullFn = function() {};
 
             for ( var i in extendObj )
                 if ( extendObj.hasOwnProperty( i ) ) {
@@ -92,7 +92,7 @@ define( [ '../helpers' ], function( _ ) {
                         }
 
                         delete oldObj[ i ]
-                        
+
                     } else { // merge object
                         resObj[ i ] = extendObj[ i ];
                     }

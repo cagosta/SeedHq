@@ -1,4 +1,8 @@
 npm install --save-dev findit
 npm install --save-dev mkdirp
+bower install --save-dev mangrove-utils
 cp -f ../dashux/tasks/make_test_files.js tasks/
 cp ../dashux/test/test.js.template test/
+cp ../dashux/test/TestRunner.js.template test/
+
+grunt make_test_files

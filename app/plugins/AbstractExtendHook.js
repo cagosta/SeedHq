@@ -1,6 +1,7 @@
 define( [
-	'Seed/Extendable'
-], function( Extendable ) {
+	'Seed/Extendable',
+	'mangrove-utils/extend'
+], function( Extendable, extend ) {
 
 
 	/**
@@ -14,7 +15,6 @@ define( [
 		constructor: function( o ) {
 
 			this.pluginId = o.pluginId
-
 
 			this.Class = o.Class
 			this.newPrototype = this.getNewPrototype()
@@ -31,83 +31,58 @@ define( [
 				this.initializePlugin()
 
 
-
-			this.handleType()
-
 		},
 
-		handleType: function() {
+		extendNewPrototype: function( o ) {
 
-			this.addExtensionType()
-
-		},
-
-		addExtensionType: function() {
-
-			var extensionType = this.getExtensionAttr( 'type' ),
-				types = this.getNewPrototypeAttr( 'types' ),
-				currentTypes;
-
-			if ( !extensionType )
-				return
-
-			currentTypes = types.slice()
-			currentTypes.push( extensionType )
-
-			this.setNewPrototypeAttr( 'types', currentTypes )
+			extend( this.getNewPrototype(), o )
 
 		},
 
 
 		pluginInitialized: function() {
 
-			return !!this.getPluginConfig()
+			if ( !this.getNewPrototypeAttr( this.confKey ) )
+				return false
 
+			if ( !this.getNewPrototypeAttr( this.confKey )[  this.pluginId ] )
+				return false
+
+			return true
 		},
 
 		initializePlugin: function() {
 
+			if ( !this.getNewPrototypeAttr( this.confKey ) ) {
+				this.setNewPrototypeAttr( this.confKey, {} )
+			}
 
-			this.setNewPrototypeAttr( this.confKey, {} )
+			if ( !this.getNewPrototypeAttr( this.confKey )[  this.pluginId ] )
+				this.getNewPrototypeAttr( this.confKey )[  this.pluginId ] = {}
 
-			this.setNewPrototypeAttr( 'types', [] )
+		},
 
-			this.setNewPrototypeAttr( 'getTypes', function() {
+		defineNewPrototypeMethod: function( methodName, f ) {
 
-				return this.types
-
-			} )
-
-			this.setNewPrototypeAttr( 'isA', function( type ) {
-
-				return this.types.indexOf( type ) !== -1
-
-			} )
-
-			this.setNewPrototypeAttr( 'isTypeOf', function( type ) { // retro compatibility
-
-				return this.types.indexOf( type ) !== -1
-
-			} )
-
+			this.setNewPrototypeAttr( methodName, f )
 
 		},
 
 		getPluginConfig: function() {
 
-			return this.getNewPrototype()[ this.confKey ]
+			return this.getNewPrototype()[ this.confKey ][  this.pluginId ]
 
 		},
 
 		getPluginConfigAttr: function( key ) {
 
-			return this.getNewPrototype()[ this.confKey ][ key ]
+			return this.getPluginConfig()[ key ]
 
 		},
 
 		setPluginConfigAttr: function( key, value ) {
 
-			this.getNewPrototype()[ this.confKey ][ key ] = value
+			this.getPluginConfig()[ key ] = value
 
 		},
 

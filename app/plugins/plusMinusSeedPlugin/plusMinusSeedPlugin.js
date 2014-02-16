@@ -1,7 +1,7 @@
 define( [
     'Seed/plugins/AbstractSeedPlugin',
-    './TypeExtendHook'
-], function( AbstractSeedPlugin, TypeExtendHook ) {
+    './PlusMinusExtendHook'
+], function( AbstractSeedPlugin, PlusMinusExtendHook ) {
 
 
     /**
@@ -11,12 +11,12 @@ define( [
      */
 
 
-    return AbstractSeedPlugin.extend( {
+    var PlusMinusSeedPlugin = AbstractSeedPlugin.extend( {
 
         constructor: function() {
 
-            this.id = 'type'
-            this.ExtendHook = TypeExtendHook
+            this.id = 'plusminus'
+            this.ExtendHook = PlusMinusExtendHook
 
             AbstractSeedPlugin.prototype.constructor.apply( this, arguments )
 
@@ -29,5 +29,8 @@ define( [
         }
 
     } )
+
+
+    return new PlusMinusSeedPlugin
 
 } )
