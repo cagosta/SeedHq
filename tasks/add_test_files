@@ -1,0 +1,4 @@
+npm install --save-dev findit
+npm install --save-dev mkdirp
+cp -f ../dashux/tasks/make_test_files.js tasks/
+cp ../dashux/test/test.js.template test/

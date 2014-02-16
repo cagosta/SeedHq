@@ -52,9 +52,14 @@ define( [
 
             this.suitePaths = []
 
+
             this.testIds.forEach( function( p, i ) {
 
-                this.suitePaths[ i ] = 'test/app/' + p + 'Test'
+                var path = p.split( '/' ),
+                    testPath;
+
+                testPath = 'test/app/' + path.slice( 1, path.length ).join( '/' ) + 'Test'
+                this.suitePaths[ i ] = testPath
 
             }.bind( this ) )
 

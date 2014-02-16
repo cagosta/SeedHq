@@ -1,15 +1,9 @@
 define( [
     'Seed/Seed'
-], function( Seed ) {
+ ], function(  ) {
+
 
     describe( 'Seed', function() {
-
-        it( 'should load without blowing', function() {
-
-            expect( Seed ).to.exists
-
-        } )
-
 
     } )
 

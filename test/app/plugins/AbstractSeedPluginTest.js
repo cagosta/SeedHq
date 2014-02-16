@@ -1,16 +1,9 @@
 define( [
     'Seed/plugins/AbstractSeedPlugin'
-], function( AbstractSeedPlugin ) {
+ ], function(  ) {
 
 
     describe( 'AbstractSeedPlugin', function() {
-
-        it( 'should load without blowing', function() {
-
-            expect( AbstractSeedPlugin ).to.exists
-
-        } )
-
 
     } )
 

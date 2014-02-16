@@ -16,7 +16,6 @@ requirejs.config( {
         }
     },
     paths: {
-        SeedHq: '.',
         Seed: '.',
         test: '../test',
         almond: 'bower_components/almond/almond',

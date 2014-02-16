@@ -1,8 +1,12 @@
 var TestFileMaker = function( o ) {
 
 
-    this.force = false
+    this.force = true
 
+
+    this.grunt = o.grunt
+
+    this.moduleName = this.grunt.mangroveConfig.get( 'name.raw' )
 
     this.filePath = o.filePath
     this.targetFolder = o.targetFolder
@@ -36,7 +40,7 @@ var TestFileMaker = function( o ) {
     this.setTarget( 'exists', this.fs.existsSync( this.getTarget( 'path' ) ) )
 
 
-    this.setTarget( 'modulePath', this.getSource( 'path' ).replace( '.js', '' ).replace( 'app/', '' ) )
+    this.setTarget( 'modulePath', this.moduleName + '/' + this.getSource( 'path' ).replace( '.js', '' ).replace( 'app/', '' ) )
     this.setTarget( 'moduleName', this.getSource( 'basename' ) )
 
     this.setTarget( 'file', this.template
@@ -181,6 +185,7 @@ TestFilesMaker.prototype = {
         this.fileMakers.push(
             new TestFileMaker( {
                 filePath: file,
+                grunt: this.grunt,
                 targetFolder: this.targetFolder,
                 template: this.template
             } )

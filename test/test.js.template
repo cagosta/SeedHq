@@ -1,0 +1,10 @@
+define( [
+    '<%= modulePath %>'
+ ], function(  ) {
+
+
+    describe( '<%= moduleName %>', function() {
+
+    } )
+
+} )
