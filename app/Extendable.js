@@ -1,26 +1,41 @@
 define( [
-    './helpers',
-    './extendHooker',
-    './extendHookRegistrations'
- ], function( _ , extendHooker, hookList ) {
+    './helpers'
+], function( _ ) {
 
 
     /**
-     * This is the basic extendable element, it is used by fjs.View, fjs.Controller and others ...
-     * It allows user to specifies '+_String:methodName_' to augment set the + method of the prototype of the new element with the defined method
-     * if A is extended and A has a method named 'some_random_method',
-     * if you do B = A.extend({
-     *  '+some_random_method' : add
-     * })
-     * B.some_random_method <=> function() {
-     *  A.prototype.some_random_method();
-     *  add();
-     * }
+     * This is the basic extendable element,
+     *
      * @export Seed/Extendable
-
-
+     *
      */
-    var Extendable = function( ) {};
+
+    var Extendable = function() {
+
+    }
+
+    Extendable._seedPlugins = []
+
+    Extendable.getSeedPlugins = function() {
+
+        return this._seedPlugins
+
+    }
+
+    Extendable.hasSeedPlugin = function( id ) {
+
+        var plugins = this.getSeedPlugins()
+
+        for ( var i = plugins.length; i--; ) {
+
+            if ( plugins[ i ].getId() === id )
+                return true
+        }
+
+        return false
+
+    }
+
 
     /**
      * Initialize an object
@@ -29,96 +44,90 @@ define( [
      * @param {Object} configuration Object
      */
 
-    Extendable.prototype.constructor = function( ) {};
+    Extendable.prototype.constructor = function() {}
 
-    // here we hookify Extendable
-    
-    extendHooker.hookify( Extendable )
-    for ( var i = 0; i < hookList.length; i++ ){
-        Extendable.registerHook( hookList[i] )
+
+    Extendable.use = function( useOptions ) {
+
+        var attrs, Class, extension = {}, plugins, proto;
+
+        useOptions = useOptions || {}
+
+        plugins = useOptions.plugins ||  []
+
+        Class = function() {
+
+            var instanciation = arguments[ 0 ] !== false
+
+            this.Class = Class
+
+            if ( instanciation ) {
+
+                Class.prototype.constructor.apply( this, arguments )
+            }
+
+        }
+
+        attrs = _.clone( this )
+        _.extend( Class, attrs )
+
+        Class._seedPlugins = plugins
+
+        proto = _.extend( ( new this( false ) ) )
+
+        Class.prototype = proto
+
+        return Class
+
     }
 
-    /**
-     * Call init function from the cstructor signleton scope, useful to add custom afterNew/beforeNew callbacks
-     *
-     * @param {object} inst The instance scope
-     * @param {array} args arguments
-     */
 
-    Extendable[ 'new' ] = function( inst, args ) {
-        
-    };
+    Extendable.Class = Extendable
 
+    Extendable.extend = function( extension ) {
 
+        var attrs, Class, proto, plugins;
 
+        Class = function() {
 
-    /**
-     * Singleton extend with +/- convention
-     *
-     * @private
-     * @param {Object} basicObj configuration key-value object with +/-key
-     * @returns {Object} extObj
-     *
-     */
+            this.Class = Class
 
-    var extendCstr = function( basicObj, extObj ) {
+            var instanciation = arguments[ 0 ] !== false
 
-        var Res;
-        Res = function( o ) {
-            Res[ 'new' ].call( Res, this, arguments );
-        };
+            if ( instanciation ) {
 
-        var attrs = _.extend( {}, basicObj, pm( basicObj, extObj ) );
-
-        for ( var i in attrs )
-            if ( attrs.hasOwnProperty( i ) ) {
-                Res[ i ] = attrs[ i ];
+                Class.prototype.constructor.apply( this, arguments )
             }
 
-        return Res;
-    };
+
+        }
+
+
+        attrs = _.clone( this )
+        _.extend( Class, attrs )
+
+
+        proto = _.extend( new this( false ), extension )
+
+
+        plugins = this.getSeedPlugins()
+
+        Class.prototype = proto;
+
+
+        for ( var i = 0; i < plugins.length; i++ )
+            plugins[ i ].handle( {
+                extendedPrototype: this.prototype,
+                Class: Class,
+                extension: extension
+            } )
 
 
 
-    /**
-     * Extend a Constructor with +/- convention
-     *
-     * @public
-     * @param {Object} obj configuration key-value object with '+key' or '-key'
-     *
-     */
+        return Class
 
+    }
 
-    Extendable.extend = function( obj ) {
+    return Extendable
 
-        var C = function( o ) {
-            // C[ 'new' ].call( C, this, arguments );
-            // ( typeof( args[ 0 ] ) !== 'boolean' || args[ 0 ] !== false ) && this.constructor.apply( this, arguments );
-            ( typeof( arguments[ 0 ] ) !== 'boolean' || arguments[ 0 ] !== false ) && ( C.prototype.constructor).apply( this, arguments );
-        };
-
-
-        //copy constructor ownProperty (i.e. extend and new)
-        var attrs = _.clone( this );
-
-        for ( var i in attrs )
-            if ( attrs.hasOwnProperty( i ) ) {
-                C[ i ] = attrs[ i ];
-            }
-
-        var hooks = Extendable.__hooks,
-            hooked = _.extend( new this( false ), obj )
-
-            for ( var i = 0; i < hooks.length; i++ ) {
-                hooked = hooks[ i ].handle( hooked, obj )
-            }
-
-        C.prototype = hooked
-        // C.prototype = extend(new this(false), pm(this.prototype, obj));
-
-        return C;
-    };
-
-    return Extendable;
-
-} );
+} )

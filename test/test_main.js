@@ -6,7 +6,10 @@ if ( typeof window === 'undefined' )
 
 
 requirejs.config( {
-    baseUrl: function(){ return ( typeof define === 'undefined') ? __dirname + '/../app': '../app'}(),
+    baseUrl: function() {
+
+        return ( typeof define === 'undefined' ) ? __dirname + '/../app' : '../app'
+    }(),
     shim: {
         mocha: {
             exports: 'mocha'
@@ -14,6 +17,7 @@ requirejs.config( {
     },
     paths: {
         SeedHq: '.',
+        Seed: '.',
         test: '../test',
         almond: 'bower_components/almond/almond',
         chai: 'bower_components/chai/chai',
@@ -33,13 +37,15 @@ requirejs.config( {
         'Markdown.Converter': 'bower_components/requirejs-plugins/lib/Markdown.Converter',
         text: 'bower_components/requirejs-plugins/lib/text',
         'sinon-chai': 'bower_components/sinon-chai/lib/sinon-chai',
-        sinonjs: 'bower_components/sinonjs/sinon'
+        sinonjs: 'bower_components/sinonjs/sinon',
+        backbone: 'bower_components/backbone/backbone',
+        'mangrove-utils': 'bower_components/mangrove-utils/app'
     }
 } )
 
 requirejs( [ 'test/TestRunner' ], function( TestRunner ) {
 
     new TestRunner()
-    
+
 
 } )

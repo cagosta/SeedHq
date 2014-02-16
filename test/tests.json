@@ -1,0 +1,7 @@
+[
+    "Seed",
+    "Eventable",
+    "plugins/AbstractSeedPlugin",
+    "plugins/accessorsSeedPlugin",
+    "plugins/typeSeedPlugin"
+]

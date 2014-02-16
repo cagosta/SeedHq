@@ -74,9 +74,10 @@ engine.ifBrowser( function() {
     baseUrl = '.'
 } )
 
-
 requirejs.config( {
-    baseUrl: function(){ return ( typeof define === 'undefined') ? __dirname: '.'}(),
+    baseUrl: function() {
+        return ( typeof define === 'undefined' ) ? __dirname : '.'
+    }(),
     shim: {
         mocha: {
             exports: 'mocha'
@@ -84,6 +85,8 @@ requirejs.config( {
     },
     paths: {
         SeedHq: '.',
+        test: '../test',
+        Seed: '.',
         almond: 'bower_components/almond/almond',
         chai: 'bower_components/chai/chai',
         'chai-as-promised': 'bower_components/chai-as-promised/lib/chai-as-promised',
@@ -102,7 +105,9 @@ requirejs.config( {
         'Markdown.Converter': 'bower_components/requirejs-plugins/lib/Markdown.Converter',
         text: 'bower_components/requirejs-plugins/lib/text',
         'sinon-chai': 'bower_components/sinon-chai/lib/sinon-chai',
-        sinonjs: 'bower_components/sinonjs/sinon'
+        sinonjs: 'bower_components/sinonjs/sinon',
+        backbone: 'bower_components/backbone/backbone',
+        'mangrove-utils': 'bower_components/mangrove-utils/app'
     }
 } )
 
@@ -110,23 +115,23 @@ requirejs.config( {
 var isStandalone = !! requirejs._defined,
     synchronous = isStandalone
 
-engine.ifNode(function(){
+    engine.ifNode( function() {
 
-    synchronous = true
+        synchronous = true
 
-})
-
-if ( synchronous ) { // case standalone
-
-    var SeedHq = requirejs( 'SeedHq/SeedHq' )
-
-    engine.exports( 'SeedHq', SeedHq )
-
-
-} else {
-
-    requirejs( [ 'SeedHq/SeedHq' ], function( SeedHq ) {
-        engine.exports( 'SeedHq', SeedHq )
     } )
 
-}
+    if ( synchronous ) { // case standalone
+
+        var SeedHq = requirejs( 'SeedHq/SeedHq' )
+
+        engine.exports( 'SeedHq', SeedHq )
+
+
+    } else {
+
+        requirejs( [ 'SeedHq/SeedHq' ], function( SeedHq ) {
+            engine.exports( 'SeedHq', SeedHq )
+        } )
+
+    }
