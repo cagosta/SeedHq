@@ -1,7 +1,7 @@
 define( [
     'Seed/Extendable',
     'Seed/plugins/accessorsSeedPlugin/accessorsSeedPlugin'
-], function( Extendable, accessorsSeedPlugin ) {
+ ], function( Extendable, accessorsSeedPlugin ) {
 
 
 
