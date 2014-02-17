@@ -6,10 +6,7 @@ if ( typeof window === 'undefined' )
 
 
 requirejs.config( {
-    baseUrl: function() {
-
-        return ( typeof define === 'undefined' ) ? __dirname + '/../app' : '../app'
-    }(),
+    baseUrl: function(){ return ( typeof define === 'undefined') ? __dirname + '/../app': '../app'}(),
     shim: {
         mocha: {
             exports: 'mocha'

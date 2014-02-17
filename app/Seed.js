@@ -1,5 +1,5 @@
 /**
- * SeedHq version: "0.0.18" Copyright (c) 2011-2012, Cyril Agosta ( cyril.agosta.dev@gmail.com) All Rights Reserved.
+ * SeedHq version: "0.0.21" Copyright (c) 2011-2012, Cyril Agosta ( cyril.agosta.dev@gmail.com) All Rights Reserved.
  * Available via the MIT license.
  * see: http://github.com/cagosta/SeedHq for details
  */

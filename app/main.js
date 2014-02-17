@@ -84,9 +84,8 @@ requirejs.config( {
         }
     },
     paths: {
-        SeedHq: '.',
-        test: '../test',
         Seed: '.',
+        test: '../test',
         almond: 'bower_components/almond/almond',
         chai: 'bower_components/chai/chai',
         'chai-as-promised': 'bower_components/chai-as-promised/lib/chai-as-promised',
@@ -123,15 +122,15 @@ var isStandalone = !! requirejs._defined,
 
     if ( synchronous ) { // case standalone
 
-        var SeedHq = requirejs( 'SeedHq/SeedHq' )
+        var SeedHq = requirejs( 'Seed/Seed' )
 
-        engine.exports( 'SeedHq', SeedHq )
+        engine.exports( 'Seed', SeedHq )
 
 
     } else {
 
-        requirejs( [ 'SeedHq/SeedHq' ], function( SeedHq ) {
-            engine.exports( 'SeedHq', SeedHq )
+        requirejs( [ 'Seed/Seed' ], function( SeedHq ) {
+            engine.exports( 'Seed', SeedHq )
         } )
 
     }
