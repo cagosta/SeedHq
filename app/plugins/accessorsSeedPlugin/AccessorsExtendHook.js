@@ -2,7 +2,7 @@ define( [
     'Seed/Extendable',
     'Seed/plugins/AbstractExtendHook',
     'Seed/helpers'
-], function( Extendable, AbstractExtendHook, _ ) {
+ ], function( Extendable, AbstractExtendHook, _ ) {
 
 
     var AccessorsExtendHook = AbstractExtendHook.extend( {
@@ -104,6 +104,7 @@ define( [
                 }
                 error += ' is not a ' + type
 
+                debugger
                 throw new Error( error )
 
             } )

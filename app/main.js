@@ -75,9 +75,7 @@ engine.ifBrowser( function() {
 } )
 
 requirejs.config( {
-    baseUrl: function() {
-        return ( typeof define === 'undefined' ) ? __dirname : '.'
-    }(),
+    baseUrl: function(){ return ( typeof define === 'undefined') ? __dirname: '.'}(),
     shim: {
         mocha: {
             exports: 'mocha'

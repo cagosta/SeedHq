@@ -1,7 +1,7 @@
 define( [
     'Seed/Extendable',
     './AbstractExtendHook'
-], function( Seed, AbstractExtendHook ) {
+ ], function( Seed, AbstractExtendHook ) {
 
 
     /**
@@ -15,6 +15,7 @@ define( [
         constructor: function() {
 
             this.ExtendHook = this.ExtendHook || AbstractExtendHook
+            this.extendHooks = []
 
         },
 
@@ -34,9 +35,16 @@ define( [
 
             o.pluginId = this.id
 
-            var ExtendHook = this.ExtendHook
+            var ExtendHook = this.ExtendHook,
+                extendHook;
 
-            new ExtendHook( o )
+            extendHook = new ExtendHook( o )
+            this.extendHooks.push( extendHook )
+            this.onExtend( extendHook )
+
+        },
+
+        onExtend: function( extendHook ) {
 
         }
 

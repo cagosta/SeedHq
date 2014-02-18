@@ -12,7 +12,6 @@ define( [
  ], function( Eventable, helpers, defaultPlugins ) {
 
 
-    console.log( 'yep' )
     /**
      * @class Seed
      * @param {object} o configuration object
