@@ -1,7 +1,7 @@
 define( [
 	'Seed/Extendable',
 	'mangrove-utils/extend'
-], function( Extendable, extend ) {
+ ], function( Extendable, extend ) {
 
 
 	/**
@@ -18,12 +18,10 @@ define( [
 
 			this.Class = o.Class
 			this.newPrototype = this.getNewPrototype()
-
-
 			this.extendedPrototype = o.extendedPrototype
 
-
 			this.extension = o.extension
+
 			this.confKey = 'seedPlugin'
 
 
@@ -91,7 +89,6 @@ define( [
 			return this.getClass().prototype
 
 		},
-
 
 		setNewPrototypeAttr: function( key, value ) {
 
