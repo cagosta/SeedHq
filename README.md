@@ -91,10 +91,10 @@ favoriteBanana.dump();
 ## More infos/usages
 
 Seed.js is a package of 4 little Tools :
-*    **Extendable**, (in SeedHq/Extendable), extend objects protoypes gracefully with +/- convention see [Extend with Seed.js](SeedHq/blob/master/documentation/Extendable.md)
-*    **Eventable**, (in SeedHq/Eventable), emit and subscribe event properly, see [Use events](SeedHq/blob/master/documentation/Eventable.md)
-*    **options**, (in SeedHq), elegant attributes set. see [Manage attributes with 'options'](SeedHq/blob/master/documentation/options.md)
-*    **sub**, (in SeedHq), elegant attributes set [What is sub ?](SeedHq/blob/master/documentation/sub.md)
+*    **Extendable**, (in SeedHq/Extendable), extend objects protoypes gracefully with +/- convention see [Extend with Seed.js](documentation/Extendable.md)
+*    **Eventable**, (in SeedHq/Eventable), emit and subscribe event properly, see [Use events](documentation/Eventable.md)
+*    **options**, (in SeedHq), elegant attributes set. see [Manage attributes with 'options'](documentation/options.md)
+*    **sub**, (in SeedHq), elegant attributes set [What is sub ?](documentation/sub.md)
 
 
 
