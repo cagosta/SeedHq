@@ -8,7 +8,7 @@ Elegant customizable inheritance, attributes and events in JavaScript.
  
 *   **inheritance**, `Seed.extend` and the `'+method'` convention help you inherit fast and easily, see [Extend with Seed.js](documentation/Extendable.md)
 *   **attributes**, with easy and flexible `options` keyword, see [Manage attributes with 'options'](documentation/options.md)
-*   **events** and **subscriptions**, to avoid object persistance due to dirty event subscriptions see [Use events](SeedHq/blob/master/documentation/Events.md)
+*   **events** and **subscriptions**, to avoid object persistance due to dirty event subscriptions see [Use events](documentation/Events.md)
 *   **sub**, build a sub object of a parent one see [What is it sub ?](documentation/sub.md)
 
 
