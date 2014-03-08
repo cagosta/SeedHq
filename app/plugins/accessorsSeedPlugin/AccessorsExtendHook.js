@@ -104,7 +104,6 @@ define( [
                 }
                 error += ' is not a ' + type
 
-                debugger
                 throw new Error( error )
 
             } )

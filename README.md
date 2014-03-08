@@ -5,20 +5,15 @@
 ## Introduction
 
 Elegant customizable inheritance, attributes and events in JavaScript.
-
-*   **inheritance**, `Seed.extend` and the `"+method"` convention help you inherit fast and easily, see [Extend with Seed.js](SeedHq/blob/master/documentation/Extendable.md)
+ 
+*   **inheritance**, `Seed.extend` and the `'+method'` convention help you inherit fast and easily, see [Extend with Seed.js](SeedHq/blob/master/documentation/Extendable.md)
 *   **attributes**, with easy and flexible `options` keyword, see [Manage attributes with 'options'](SeedHq/blob/master/documentation/options.md)
 *   **events** and **subscriptions**, to avoid object persistance due to dirty event subscriptions see [Use events](SeedHq/blob/master/documentation/Events.md)
-*   **sub**, build a sub object of a parent one see [What is it sub ?](SeedHq/blob/master/documentation/Events.md)
+*   **sub**, build a sub object of a parent one see [What is it sub ?](SeedHq/blob/master/documentation/sub.md)
 
 
 ## Basic Usage
-```js
-var S = require("SeedHq", function(r){
-  var S = r.Seed;
-  /* code */
-});
-```
+
 
 ### Extend your own Constructors 
 
@@ -33,29 +28,29 @@ var S = require("SeedHq", function(r){
       
       // i like to taste any fruit
       taste : function() {
-        console.log("I like to taste a fruit");
+        console.log('I like to taste a fruit');
       },
       
       dump : function() {
         return {
-          objectType :  "a fruit"
+          objectType :  'a fruit'
         }
       }
     });
     
     var Banana = Fruit.extend({
       // by default the banana is owned by a banana eater and is yellow
-      "+options" : {
-        owner : "banana eater",
-        color : "yellow"
+      '+options' : {
+        owner : 'banana eater',
+        color : 'yellow'
       },
       
       // but the taste of the banana depends if it tasty
-      "+taste" : function() {
-        console.log(this.isTasty ? "GREAT!" : "beurk!");
+      '+taste' : function() {
+        console.log(this.isTasty ? 'GREAT' : 'beurk');
       },
       
-      "+dump" : function() {
+      '+dump' : function() {
         return {
           color : this.color
         }
@@ -69,8 +64,8 @@ var S = require("SeedHq", function(r){
 ```
 var oldBanana = new Banana({
   isTasty : false,
-  color : "black",
-  owner : "me"
+  color : 'black',
+  owner : 'me'
 });
 
 // options are set as attributes in the instance
@@ -80,16 +75,16 @@ oldBanana.isTasty
 // +taste in Banana is executed after taste in Fruit
 oldBanana.taste();
 // I like to test fruits
-// beurk!
+// beurk
 
 var favoriteBanana = new r.Banana();
 
 favoriteBanana.taste(); 
 // I like to test fruits
-// GREAT!
+// GREAT
 
 favoriteBanana.dump();
-//=> { color : "yellow", objectType : "a fruit"}
+//=> { color : 'yellow', objectType : 'a fruit'}
 
 ```
 
@@ -113,25 +108,25 @@ SeedHq is coded as [AMD module](http://requirejs.org/docs/whyamd.html) but can b
 #### With npm: ####
 
 ```
-npm install seedHq
+npm install seedhq
 ```
 
 and use it with nodejs: 
 ```
-var SeedHq = require('seedHq')
+var Seed = require('seedgq')
 ```
 
 #### With bower: ####
 
 ``` 
-bower install SeedHq
+bower install Seed
 ```
 
-Point `SeedHq` to `[bower_components_path]/SeedHq/app/SeedHq.js` into your requirejs path config 
+Point `Seed` to `[bower_components_path]/SeedHq/app/Seed.js` into your requirejs path config 
 and load it with requirejs:  
 
 ```javascript
-require(['SeedHq/SeedHq'], function( SeedHq ){
+require(['Seed/Seed'], function( Seed ){
 
 })
 ```
@@ -155,8 +150,7 @@ window.SeedHq
 ## To do ##
 
 *  rewrite old tests with mocha  
-*  clean hooks naming and implementation  
-*  document hooks 
+*  document plugins
 
 ## Documentation ##
 
@@ -165,12 +159,12 @@ See jsdoc-generated documentation in /documentation
 ### Folder Structure ###
 
     app         ->  development files
-    |- bower_components          ->  [bower](https://github.com/bower/bower) front-end packages
+    |- bower_components          ->  bower front-end packages
     |- main.js                   ->  main file for browser and node.js, handle AMD config
     |- seed_hq   -> main AMD module
     test        ->  unit tests
     |
-    tasks       -> [Grunt](http://gruntjs.com/) tasks, see [generator-mangrove-module](https://github.com/cagosta/generator-mangrove-module)
+    tasks       -> grunt tasks, see [generator-mangrove-module](https://github.com/cagosta/generator-mangrove-module)
     |
     dist        ->  distribution & build files
     |

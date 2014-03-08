@@ -1,7 +1,7 @@
 define( [
     'Seed/Extendable',
     'Seed/plugins/AbstractExtendHook'
-], function( Extendable, AbstractExtendHook ) {
+ ], function( Extendable, AbstractExtendHook ) {
 
 
     /**
@@ -53,7 +53,9 @@ define( [
                 types: [],
 
                 getTypes: function() {
+
                     return this.types
+
                 },
 
                 isA: function( type ) {

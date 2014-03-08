@@ -94,9 +94,16 @@ define( [
             if ( typeof( C ) !== 'function' ) {
                 throw new Error( 'C is not a valid constructor' )
             }
-            var c = new C( o )
+            var c = new C( this.getSubparams( o ) )
             this._subs.push( c )
             return c
+
+        },
+
+
+        getSubparams: function( o ) {
+
+            return o || {}
 
         },
 
