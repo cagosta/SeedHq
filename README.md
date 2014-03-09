@@ -77,7 +77,7 @@ oldBanana.taste();
 // I like to test fruits
 // beurk
 
-var favoriteBanana = new r.Banana();
+var favoriteBanana = new Banana();
 
 favoriteBanana.taste(); 
 // I like to test fruits
@@ -103,7 +103,7 @@ See [cagosta.github.io/Seed](http://cagosta.github.io/Seed)
 
 ## Install ##
 
-SeedHq is coded as [AMD module](http://requirejs.org/docs/whyamd.html) but can be installed with npm, bower or old-fashioned src=".min.js".
+SeedHq is developed as [AMD module](http://requirejs.org/docs/whyamd.html) but can be installed with npm, bower or old-fashioned src=".min.js".
 
 #### With npm: ####
 
