@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.8'
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-mangrove-module' ]; then cd .. && eval "mv $currentfolder generator-mangrove-module" && cd generator-mangrove-module; fi

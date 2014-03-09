@@ -1,0 +1,37 @@
+{
+  "name": "mangrove-utils",
+  "version": "0.0.27",
+  "main": [
+    "app"
+  ],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.9",
+    "requirejs-plugins": "~1.0.2",
+    "engineDetector": "~0.0.8"
+  },
+  "devDependencies": {
+    "sinonjs": "~1.7.3",
+    "chai": "~1.8.1",
+    "chai-as-promised": "~4.1.0",
+    "sinon-chai": "~2.4.0",
+    "mocha": "~1.15.1",
+    "almond": "~0.2.7",
+    "normalize-css": "~2.1.3"
+  },
+  "homepage": "https://github.com/cagosta/mangrove-utils",
+  "_release": "0.0.27",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.27",
+    "commit": "994237ea7b4f724dedfd7c10a165106f0caf5bad"
+  },
+  "_source": "git://github.com/cagosta/mangrove-utils.git",
+  "_target": "~0.0.27",
+  "_originalSource": "mangrove-utils",
+  "_direct": true
+}

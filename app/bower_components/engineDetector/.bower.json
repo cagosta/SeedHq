@@ -1,0 +1,38 @@
+{
+  "name": "engineDetector",
+  "version": "0.0.26",
+  "main": [
+    "app/ifEngineIsNode.js",
+    "app/ifEngineIsBrowser.js",
+    "app/window.js",
+    "app/engine.js"
+  ],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.9",
+    "requirejs-plugins": "~1.0.2"
+  },
+  "devDependencies": {
+    "sinonjs": "~1.7.3",
+    "chai": "~1.8.1",
+    "chai-as-promised": "~4.1.0",
+    "sinon-chai": "~2.4.0",
+    "mocha": "~1.15.1",
+    "almond": "~0.2.7",
+    "normalize-css": "~2.1.3"
+  },
+  "homepage": "https://github.com/cagosta/engineDetector",
+  "_release": "0.0.26",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.26",
+    "commit": "08b12324249184251d99114a77e1d4e5c116e352"
+  },
+  "_source": "git://github.com/cagosta/engineDetector.git",
+  "_target": "~0.0.8",
+  "_originalSource": "engineDetector"
+}
