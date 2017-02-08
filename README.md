@@ -181,7 +181,7 @@ Run `grunt test:browser` and open `test/` on your browser.
 
 #### On a headless browser ####
 
-`grunt test:headless` will run your tests in a headless browser, with [phantomjs](http://phantomjs.org/) and [mocha](http://visionmedia.github.io/mocha/)
+`grunt test:headless` will run your tests in a headless browser, with [phantomjs](http://phantomjs.org/) and [mocha](http://mochajs.org/)
 
 ### On node ####
 
